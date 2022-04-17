@@ -138,6 +138,11 @@ int task_switch (task_t *task)
 
     if ( task == &main_task )
     {
+	if( current_task != &dispatcher_task )
+	{
+	    printf("\nERRO\n");
+	    return -1;
+	}
 	swapcontext(&dispatcher_task.context, &main_task.context);
     }
     else if( current_task == &main_task )
@@ -160,7 +165,7 @@ int task_switch (task_t *task)
     {
 	if( current_task != &dispatcher_task )
 	{
-	    printf("\n???\n");
+	    printf("\nERRO\n");
 	    return -1;
 	}
 	queue_remove((queue_t**)&ready_q, (queue_t*)task);

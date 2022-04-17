@@ -1,42 +1,77 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "queue.h"
 
 #ifndef PPOS
 #include "ppos.h"
 #endif
 
-#ifndef QUEUE
-#include "queue.h"
-#endif
+//#define DEBUG
 
-task_t main_task, *current_task, *suspended_head, *ready_head;
-int task_count;
+task_t main_task, dispatcher_task, *current_task, *ready_q; 
+
+int userTasks;
+
+task_t* scheduler ()
+{
+    int size = queue_size((queue_t*)ready_q);
+#ifdef DEBUG
+    printf("\n------------ SCHEDULER ------------\nready_q size: %d\n", size);
+#endif
+    if( size > 0 )
+    {
+	ready_q = ready_q->next;
+	return ready_q->prev;
+    }
+    else
+    {
+	return NULL;
+    }
+}    
+
+void dispatcher()
+{
+    while( userTasks > 0 )
+    {
+	task_t *next = scheduler();
+	if( next )
+	{
+#ifdef DEBUG
+    printf("\n------------ DISPATCHER ------------\nnext->id: %d\n", next->id);
+#endif
+	    task_switch(next);
+	    if( next->status == 5 )
+    	        free((&next->context)->uc_stack.ss_sp);
+	}
+    }
+    task_exit(0);
+}
 
 void ppos_init () 
 {
-    task_count = 0;
+#ifdef DEBUG
+    printf("\n\n------------ PPOS INIT ------------\n\n");
+#endif
 
     /* desativa o buffer da saida padrao (stdout), usado pela função printf */
     setvbuf (stdout, 0, _IONBF, 0) ;
 
-    suspended_head = NULL;
-    ready_head = NULL;
-     
-    main_task.id = 0;
-    getcontext(&(main_task.context));
+    ready_q = NULL;
+    userTasks = 0;
     current_task = &main_task;
+    task_create(&dispatcher_task, (void *)dispatcher, NULL);
 }
 
 // Cria uma nova tarefa. Retorna um ID> 0 ou erro.
-int task_create (task_t *task,			
+int task_create( task_t *task,			
                  void (*start_routine)(void *),
                  void *arg)
 {
-    getcontext(&(task->context));
+    getcontext(&task->context);
 
     char *stack;
     stack = malloc (STACKSIZE) ;
-    if (stack)
+    if ( stack )
     {
        task->context.uc_stack.ss_sp = stack ;
        task->context.uc_stack.ss_size = STACKSIZE;
@@ -49,25 +84,48 @@ int task_create (task_t *task,
        exit (1) ;
     }
 
-    makecontext (&(task->context), (void*)(*start_routine), 1, arg) ;
-    task->id = ++task_count;
-    task->status = 0;
+    makecontext (&task->context, (void*)(*start_routine), 1, arg) ;
 
-    queue_append((queue_t**) &ready_head, (queue_t*) &task);
+    if( task != &dispatcher_task )
+    {
+	queue_append((queue_t**) &ready_q, (queue_t*) task);
+	task->id = ++userTasks;
+    	task->status = 1;
+    }
+    else
+    {
+	dispatcher_task.id = -1;
+    }
 
 #ifdef DEBUG
-    printf("\ntask_count: %d, task->id: %d\n", task_count, task->id);
+    printf("\n------------ TASK CREATE ------------\ntask_count: %d - task->id: %d\n", userTasks, task->id);
 #endif
 
     return task->id;
 }
+
+// retorna o identificador da tarefa corrente (main deve ser 0)
+int task_id () { return current_task->id; }
 
 // Termina a tarefa corrente, indicando um valor de status encerramento
 void task_exit (int exit_code) 
 {
     if( exit_code == 0 )
     {
-	task_switch(&main_task);
+	if( current_task == &dispatcher_task )
+    	{
+    	    task_switch(&main_task);
+    	}
+	else
+	{
+	    current_task->status = 5;
+	    --userTasks;
+	    task_yield();
+	}
+    }
+    else
+    {
+	printf("\nERRO: task_exit - CODE = %d\n", exit_code);
     }
 }
 
@@ -75,30 +133,61 @@ void task_exit (int exit_code)
 int task_switch (task_t *task) 
 {
 #ifdef DEBUG
-    printf("\ncurrent_task->id: %d, next_task->id: %d\n", current_task->id, task->id);
+    printf("\n------------ TASK SWITCH ------------\ncurrent_task->id: %d - next_task->id: %d\n", current_task->id, task->id);
 #endif
-    queue_remove((queue_t**)&ready_head, (queue_t*)&task);
-    task->status = 1;
-    current_task->status = 3;
-    task_t *aux = current_task;
-    current_task = task;
-    swapcontext(&(aux->context), &(task->context));
-    return 0;
-}
 
-// retorna o identificador da tarefa corrente (main deve ser 0)
-int task_id ()
-{
-    return current_task->id;
+    if ( task == &main_task )
+    {
+	swapcontext(&dispatcher_task.context, &main_task.context);
+    }
+    else if( current_task == &main_task )
+    {
+	current_task = &dispatcher_task;
+	swapcontext(&main_task.context, &dispatcher_task.context);
+    }
+    else if( task == &dispatcher_task )
+    {
+	if( current_task->status != 5 ) 
+	{
+	    current_task->status = 1;
+	    queue_append((queue_t**)&ready_q, (queue_t*)current_task);
+	}
+    	task_t* aux = current_task;
+	current_task = &dispatcher_task;
+    	swapcontext(&aux->context, &current_task->context);
+    }
+    else
+    {
+	if( current_task != &dispatcher_task )
+	{
+	    printf("\n???\n");
+	    return -1;
+	}
+	queue_remove((queue_t**)&ready_q, (queue_t*)task);
+    	task_t* aux = current_task;
+	current_task = task;
+    	swapcontext(&aux->context, &current_task->context);
+    }
+    
+    return 0;
 }
 
 void task_yield ()
 {
-    queue_append((queue_t**)&ready_head, (queue_t*)&current_task);
+    if( current_task != &dispatcher_task )
+	task_switch(&dispatcher_task);
+    else
+	printf("\n???\n");
 }
 
-task_t* scheduler ()
+void print_elem (void *ptr)
 {
-    
-}
+   task_t *elem = ptr ;
 
+   if (!elem)
+      return ;
+
+   elem->prev ? printf ("%d", elem->prev->id) : printf ("*") ;
+   printf ("<%d>", elem->id) ;
+   elem->next ? printf ("%d", elem->next->id) : printf ("*") ;
+}

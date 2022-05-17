@@ -1,0 +1,175 @@
+\documentclass[12pt]{article}
+
+\usepackage{graphicx}
+\usepackage[hyphens]{url}
+\usepackage[utf8]{inputenc}
+\usepackage{indentfirst}
+        
+\begin{document}
+
+\title{
+    \textbf{Uma análise dos métodos de avaliação de acessibilidade de interfaces web entre idosos}
+    }
+	    
+    \author{
+	Caio Fodra - RA 2236648                             \\
+	Eduardo Takeshi Voltareli Suzuki - RA 1949764       \\
+	Gustavo Kumasawa - RA 2024217                       \\
+	\\
+	Universidade Tecnológica Federal do Paraná - UTFPR
+							    \\  
+	\texttt{caiofodra, kumasawa, suzuki\{@alunos.utfpr.edu.br\} }
+	}
+\date{}
+\maketitle 
+
+\textbf{Resumo:}
+	        
+\textbf{Palavras-chave:}
+
+\textbf{Abstract:}
+
+\textbf{Keywords:}
+
+\section{Introdução}
+
+    Em um contexto em que o uso da Internet por Interfaces Web é uma tarefa importante no dia a dia das pessoas, cabe dar relevância ao fato de que a população de idosos no Brasil está crescendo nos últimos anos e, segundo o IBGE [Paradella, 2018], as pessoas acima de 60 anos já abrangem mais de 14\% da população total do Brasil. Com um certo grau de declínio cognitivo e sensorial que acompanha tal idade [Lindenberger e Ghisletta, 2009], em conjunto de ser o público que menos usa internet [Johnson, 2022] e considerando que a Internet é uma tecnologia que tem o potencial de democratizar o conhecimento [Sales e Cybis, 2003], permitindo com que qualquer pessoa tenha acesso a informações de forma rápida e global, é necessário que a interação desta fatia da população com a ferramenta possa ser realizada sem empecilhos, fazendo-se necessárias adaptações cabíveis tendo as diferentes características dos idosos em mente. Assim, foram criados diversos métodos de avaliação de interfaces na intenção de avaliar se determinada interface web está corretamente acessível ao público idoso, garantindo que o uso da ferramenta possa ser realizado sem obstáculos.
+
+    Segundo a World Wide Web Consortium [W3C, 2012], a Web é um recurso essencial para vários fatores que cercam a vida, como educação, comércio, interações sociais e outros. Assim, é importante que o conceito de acessibilidade da web seja difundido por todas as organizações e indivíduos que forem desenvolver interfaces para a Web. A acessibilidade na Web, segundo [W3C, 2018] significa que sites, ferramentas e tecnologias são criadas de forma que pessoas com algum tipo de incapacidade possam utilizar, mais específicamente, significa que qualquer pessoa possa perceber, compreender, navegar e interagir com a Web, além de poder também contribuir com ela. Baseando-se nestes fatores, define-se possíveis critérios técnicos os quais ao serem aplicados em desenvolvimento de interfaces Web contribuiriam para uma interação mais acessível ao público idoso
+
+\subsection{Objetivo geral}
+    O objetivo desta pesquisa é comparar métodos de avaliação de acessibilidade de interfaces web para idosos.
+
+\subsection{Objetivos Específicos}
+
+\begin{itemize}
+    \item{Identificar os métodos de avaliação de acessibilidade de interfaces web entre idosos disponíveis.}
+
+    \item{Identificar os casos de uso mais recorrentes de interfaces web por idosos.}
+
+    \item{Identificar as limitações dos idosos com relação à interação com interfaces web comparados com as demais pessoas.}
+    \item{Apresentar características que diferenciam os métodos de avaliação.}
+
+    \item{Apontar vantagens e desvantagens de cada método de avaliação}
+
+\end{itemize}
+
+\subsection{Justificativa da Pesquisa}
+
+    A falta de atenção ao público idoso na construção de interfaces web é um problema, considerando que cresce cada vez mais a população idosa no Brasil [Conforto, Debora e Santarosa, 2002]. Interfaces web menos acessíveis resultam em excluídos digitais, que não irão poder usufruir da Internet como um todo, desperdiçando o potencial democrático que a tecnologia permite.
+
+    O uso de métodos de avaliação de interfaces web para idosos na construção de sites permite com que o responsável pelo desenvolvimento da interface tenha de forma mais clara o conhecimento das necessidades que os idosos têm ao interagir com a Internet e assim criar algo mais acessível e abrangente [Del Rey, 2009]. São diversos os fatores que podem fazer com que um indivíduo idoso tenha dificuldades [Santos e Leithardt, 2011] em utilizar interfaces web, portanto se torna pertinente a utilização desses métodos de avaliação para comprovar que a interface construída está adequada. 
+
+    Considerando que existe uma variedade de métodos avaliativos de interfaces web para idosos, comparar os diferentes métodos auxilia o desenvolvedor de sites a escolher o melhor método a ser utilizado para cada situação que se encontra.
+
+\section{Referencial Teórico}
+    Nesta seção explora-se e referencia-se certos conceitos fundamentais e/ou frequetemente utilizados durante o artigo, e quando possível define-se técnicamente determinados termos necessários para a elaboração e construção da análise nas próximas seções.
+
+\subsection{Interface Web}
+
+    As pessoas utilizam mecanismos de busca da internet para encontrar informações de variados tipos, interagindo com Interfaces Web para fazer uso dessas ferramentas [Allah, Ismail e Elrobaa, 2021]. A internet, como meio de comunicação mais abrangente existente [Santos e Leithardt, 2011], tem o potencial de utopicamente democratizar a informação [Sales e Cibys, 2003], no entanto, se a interação com ela não for utilizável por todos, ela acaba por excluir pessoas, os excluídos digitais [Sales e Cibys, 2003]. Dessa forma, é importante considerar os diferentes públicos que possam vir a utilizar determinada Interface Web, pois caso um indivíduo tenha dificuldades de interagir com ela pelo fato de apresentar alguma limitação, o potencial de disseminar e democratizar as informações que a internet permite acaba por ser desperdiçado.
+
+\subsection{Web Design}
+
+    A criação de uma interface web, antes de ser programada, precisa ser desenhada, esse é o papel do profissional web designer. Hoje em dia, um dos trabalhos deste web designer é desenhar interfaces pensando em pessoas com algum tipo de limitação, ou seja, pensando em acessibilidade [Foley e Regan, 2002]. Pensando no público idoso [Del Rey, 2009, página 8] cita "Não há nenhum site-modelo para nortear o trabalho de webdesigners, o que há são mecanismos de checklists com sugestões e recomendações para a criação de sites voltados a esse público", no entanto, além de utilizar ferramentas de validação de uma interface web, o profissional pode fazer uso de testes de usabilidade com o público idoso. Segundo [Allah, Ismail e Elrobaa 2021], o uso de testes de usabilidade com idosos é muito efetivo no processo do design, já que permite que com que se tenha uma noção de como esse determinado público irá utilizar a interface pensada.
+
+\subsection{Usabilidade}
+
+    Segundo a Interaction Design Foundation[Norman, 2014], usabilidade é a medida de quanto um específico usuário em um específico contexto consegue atingir determinado objetivo de forma eficaz, eficiente e satisfazível. Com a implementação de um design consciente da experiência de um usuário final, sua usabilidade dependerá do quão rápido e intuitivo suas ferramentas e características são integradas em conjunto com as necessidades do usuário, independentemente de qual contexto tal usuário possa se encontrar durante sua interação com o produto/serviço em questão. Para uma melhor usabilidade, então, o design deve-se atender os seguintes requisitos:
+
+\begin{itemize}
+
+    \item 
+    \textbf{Eficácia:} o quão preciso consegue completar as ações do usuário
+						    
+    \item
+    \textbf{Eficiência:} o usuário consegue efetuar tarefas com o menor número possível de ações.
+							        
+    \item 
+    \textbf{Engajamento:} o usuário tem uma opinião positiva sobre o produto/serviço, achando-o intuitivo e apropriado a área em que pensa utilizá-lo.
+									    
+    \item
+    \textbf{Tolerância de erros:} minimiza a ocorrência de erros para apenas em casos em que realmente ocorre-se algo inesperado, abrangendo assim o maior número de ações possíveis para cada ou no máximo de contextos/configurações possíveis em que o usuário possa se encontrar durante sua interação com o design do produto/serviço.
+												\item
+    \textbf{Facilidade de aprendizado:} Novos usuários conseguem atingir seus objetivos sem muitas dificuldades ou até facilmente, e que melhora conforme sua ultilização. 
+
+											    \end{itemize}
+
+											    \subsection{Acessibilidade}
+												Em um contexto de interface web, "uma interface Web é acessível quando qualquer usuário potencial, usando um qualquer navegador, independentemente da sua capacidade ou conhecimentos, é capaz de compreender toda a informação e interagir" [Sales e Cybis, 2003]. Portanto a acessiblidade, num contexto mais abstrato de interação como a navegação web, se trata primeiramente da possibilidade de interação com o serviço/produto, ou seja, recebe-se informações de tal serviço/produto (visuais ou auditivas, geralmente) pela interface e oferece-se possibilidades de ações que podem ser aplicadas pela interface sobre este serviço/produto, o qual levará a receber outro conjunto de informações com outro conjunto de possibilidades de ações, e assim em diante. Além da possibilidade, leva-se em consideração a intuitividade da interface, ou seja, se a maneira com que as informações apresentadas pela interface correspondem diretamente com as ações em que o usuário deseja tomar, sem ambiguidades e com a mínima ou necessidade de conhecimento prévio sobre a interface e suas funcionalidades.
+
+\subsection{Limitações dos idosos}
+
+    Devido à idade avançada, os idosos apresentam limitações físicas e psicológicas em relação aos mais jovens, como a diminuição na visão e dificuldade de coordenação motora, além do desconhecimento do mundo da internet, pois não conviveram com esta tecnologia pela maior parte de suas vidas.
+												Para lidar com a dificuldade visual, o contraste de interfaces de usuário e o tamanho das fontes (e.g. tipos de letras) utilizados em programas de computador podem ser aumentados para realçar melhor o conteúdo e facilitar a leitura, como sugere [Filho, 2007]. 
+												Além disso, sobre as cores, [Farina, 1986] cita que cores são um código fácil de ser assimilado, então devem ser usadas para dar impacto ao receptor, criar ilusões ópticas, melhorar a legibilidade ou identificar uma determinada categoria de produto.
+												Também deve ser considerada a tipologia utilizada na escrita do site, pois [Hartley, 1999] diz que deve ser levada em conta a quantidade de luz que alcança a retina e a diminuição de capacidade detectar contrastes e detalhes finos.
+
+\section{Metodologia}
+
+    A pesquisa foi divida em 3 etapas: etapa 1 "Pesquisa e Entendimento" em que, utilizando o protocolo de Revisão Sistemática de Literatura (RSL) para entender os diferentes métodos de avaliação de acessibilidade de uma interface para o público idoso, considerando as obras de [Sales e Cybis, 2003], [Shen e Zhou, 2015], [Allah, Ismail e Elrobaa, 2021] entre outros; etapa 2 "Comparação e Critérios", que teve como objetivo a comparação das formas de avaliação, entendendo suas diferenças e semelhanças e finalmente a etapa 3 que é composta pelos resultados e conclusões obtidos com a pesquisa. 
+A Figura 1 apresenta essas etapas no formato de um diagrama ilustrado.
+
+
+
+Referências em Português e Inglês
+
+Sem data mínima de publicação
+
+Palavras-chave: 
+												interface web
+												Interação Humano-Computador
+												acessibilidade
+												usabilidade
+												idosos
+												Design de interface
+												Design de interação
+												Métodos avaliativos de interface web
+
+\section{Referências}
+
+\begin{itemize}
+    \item 
+    Paredella, Rodrigo. \textbf{Número de idosos cresce 18\% em 5 anos e ultrapassa 30 milhões em 2017}, Instituto Brasileiro de Geografia e Estatística, 2018. Disponível em:   \\   
+    \url{https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/20980-numero-de-idosos-cresce-18-em-5-anos-e-ultrapassa-30-milhoes-em-2017}
+    
+    \item
+    Lindenberger, Ulman; Ghisletta, Paolo. \textbf{Cognitive and sensory declines in old age: gauging the evidence for a common cause}, Max Planck Institute for Human Development, Berlin, Germany, 2009.  Disponível em:  \\
+    \url{https://pubmed.ncbi.nlm.nih.gov/19290733/}
+    
+    \item
+    Johnson, Joseph. \textbf{Age distribution of internet users worldwide 2019}, 2022. Disponível em:  \\
+    \url{https://www.statista.com/statistics/272365/age-distribution-of-internet-users-worldwide/}
+
+    \item 
+    Sales, Marcia de Barros; Cybis, Walter de Abreu. \textbf{Development of a checklist for the evaluation of the web accessibility for the aged users}, 2003. Disponível em:     \\
+    \url{https://dl.acm.org/doi/abs/10.1145/944519.944533}
+    
+    \item
+    \textbf{Introduction to Web Accessibility}, 2018. Disponível em:  \\
+    \url{https://www.w3.org/WAI/fundamentals/accessibility-intro/}
+    
+    \item
+    Santos, Maurício Araujo; Leithardt, Valderi Reis Quietinho. \textbf{Navegação na Internet para Usuários idosos Através de um Navegador com Acessibilidade}. Nuevas Ideas en Informática Educativa, TISE, 2011. Disponível em:  \\ 
+    \url{http://www.tise.cl/volumen7/TISE2011/Documento07.pdf}
+    
+    \item
+    Del Rey, Mariely. \textbf{Usabilidade para Idosos: Desenvolvimento de um Site-Modelo}, 3ª Feira Tecnológica do Centro Paula Souza - Votuporanga, 2009. Disponível em:    \\ 
+    \url{https://silo.tips/download/usabilidade-para-idosos-desenvolvimento-de-um-site-modelo}
+
+    \item
+    Norman, Don. \textbf{Usability}, The Encyclopedia of Human-Computer Interaction 2nd Edition, Interaction Design Foundation, 2014. Disponível em:   \\ 
+    \url{https://www.interaction-design.org/literature/topics/usability}
+
+    \item 
+    Allah, Khald Krayz; Ismail, Nor Azman; Elrobaa, Hisham. \textbf{Empathy Map Instrument for Analyzing Human- Computer Interaction in Using Web Search UI by Elderly Users}, International Congress of Advanced Technology and Engineering (ICOTEN), 2021. Disponível em:	\\
+    \url{https://ieeexplore.ieee.org/document/9493548}
+
+    \item
+    Shen, Wei; Zhou, Xiaolei. \textbf{Research on the Human-Computer Interaction Mode Design for Elderly Users}, 4th International Conference on Computer Science and Network Technology (ICCSNT), 2015. Disponível em:	\\
+    \url{https://ieeexplore.ieee.org/document/7490772}
+    
+
+\end{itemize}
+
+\end{document}

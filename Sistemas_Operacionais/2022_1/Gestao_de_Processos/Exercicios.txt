@@ -1,0 +1,28 @@
+
+2. 337 processos.
+
+3. "Mata" todos os processos que o usuário pode matar.
+
+4. Voicemeeter.exe, brave, wineserver64, pulseaudio, etc.
+
+5. 4 Processadores.
+
+6. MemTotal: 12132928kB.
+
+7.
+    USER: Usuário dono do processo.
+    PID: ID do processo.
+    %CPU: Taxa de tempo de CPU utilizado pelo processo sobre seu tempo total de sua execução.
+    %MEM: Taxa entre o tamanho setado do processo "habitante" sobre a memória física do computador. 
+    VSZ: Memória virtual total usada pelo processo em KiB.
+    RSS: "Resident Set Size", memória física não virtualizada que a tarefa usou em KiB.
+    TTY: tty controlador (terminal)
+    STAT: Estado do processo multi-caracterizado.
+    START: Tempo que o comando começou.
+    TIME: Tempo de CPU acumulado.
+    COMMAND: Comando como todos seus argumentos como uma string.
+
+9. Encontro o pid do ssh por ps -aux | grep ssh e termino o processo com kill -9 <pid>
+
+
+

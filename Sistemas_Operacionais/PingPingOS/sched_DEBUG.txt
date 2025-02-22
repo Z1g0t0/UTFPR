@@ -1,0 +1,1369 @@
+main: inicio
+
+init - BEFORE
+task_create - BEFORE - [0]
+task_create - AFTER - [1]
+init - AFTER
+task_yield - BEFORE - [0]
+task_yield - AFTER - [0]
+task_switch - BEFORE - [0 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 1 [
+ID: 0, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 0]
+task_switch - AFTER - [0 -> 0]
+
+task_create - BEFORE - [0]
+task_create - AFTER - [2]
+task_create - BEFORE - [0]
+task_create - AFTER - [3]
+task_create - BEFORE - [0]
+task_create - AFTER - [4]
+task_create - BEFORE - [0]
+task_create - AFTER - [5]
+task_create - BEFORE - [0]
+task_create - AFTER - [6]
+task_join - BEFORE - [0]
+task_suspend - BEFORE - [0]
+task_suspend - AFTER - [0]
+task_join - AFTER - [0]
+task_yield - BEFORE - [0]
+task_yield - AFTER - [0]
+task_switch - BEFORE - [0 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : 0, DYNAMIC: 2
+
+ID: 4, PRIORITY: 4, ALPHA : 0, DYNAMIC: 4
+
+ID: 5, PRIORITY: 6, ALPHA : 0, DYNAMIC: 6
+
+ID: 6, PRIORITY: 8, ALPHA : 0, DYNAMIC: 8
+]
+
+task_switch - BEFORE - [1 -> 2]
+task_switch - AFTER - [2 -> 2]
+    Pang: inicio (prioridade 0)
+    Pang: 0
+
+task_yield - BEFORE - [2]
+task_yield - AFTER - [2]
+task_switch - BEFORE - [2 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 3, PRIORITY: 2, ALPHA : -1, DYNAMIC: 1
+
+ID: 4, PRIORITY: 4, ALPHA : -1, DYNAMIC: 3
+
+ID: 5, PRIORITY: 6, ALPHA : -1, DYNAMIC: 5
+
+ID: 6, PRIORITY: 8, ALPHA : -1, DYNAMIC: 7
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 3]
+task_switch - AFTER - [3 -> 3]
+        Peng: inicio (prioridade 2)
+        Peng: 0
+
+task_yield - BEFORE - [3]
+task_yield - AFTER - [3]
+task_switch - BEFORE - [3 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 4, PRIORITY: 4, ALPHA : -2, DYNAMIC: 2
+
+ID: 5, PRIORITY: 6, ALPHA : -2, DYNAMIC: 4
+
+ID: 6, PRIORITY: 8, ALPHA : -2, DYNAMIC: 6
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -2, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 4]
+task_switch - AFTER - [4 -> 4]
+            Ping: inicio (prioridade 4)
+            Ping: 0
+
+task_yield - BEFORE - [4]
+task_yield - AFTER - [4]
+task_switch - BEFORE - [4 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 5, PRIORITY: 6, ALPHA : -3, DYNAMIC: 3
+
+ID: 6, PRIORITY: 8, ALPHA : -3, DYNAMIC: 5
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -3, DYNAMIC: -1
+
+ID: 4, PRIORITY: 4, ALPHA : -3, DYNAMIC: 1
+]
+
+task_switch - BEFORE - [1 -> 5]
+task_switch - AFTER - [5 -> 5]
+                Pong: inicio (prioridade 6)
+                Pong: 0
+
+task_yield - BEFORE - [5]
+task_yield - AFTER - [5]
+task_switch - BEFORE - [5 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 6, PRIORITY: 8, ALPHA : -4, DYNAMIC: 4
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+
+ID: 3, PRIORITY: 2, ALPHA : 0, DYNAMIC: 2
+
+ID: 4, PRIORITY: 4, ALPHA : -4, DYNAMIC: 0
+
+ID: 5, PRIORITY: 6, ALPHA : -4, DYNAMIC: 2
+]
+
+task_switch - BEFORE - [1 -> 6]
+task_switch - AFTER - [6 -> 6]
+                    Pung: inicio (prioridade 8)
+                    Pung: 0
+
+task_yield - BEFORE - [6]
+task_yield - AFTER - [6]
+task_switch - BEFORE - [6 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -1, DYNAMIC: 1
+
+ID: 4, PRIORITY: 4, ALPHA : -5, DYNAMIC: -1
+
+ID: 5, PRIORITY: 6, ALPHA : -5, DYNAMIC: 1
+
+ID: 6, PRIORITY: 8, ALPHA : -5, DYNAMIC: 3
+]
+
+task_switch - BEFORE - [1 -> 2]
+task_switch - AFTER - [2 -> 2]
+    Pang: 1
+
+task_yield - BEFORE - [2]
+task_yield - AFTER - [2]
+task_switch - BEFORE - [2 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 3, PRIORITY: 2, ALPHA : -2, DYNAMIC: 0
+
+ID: 4, PRIORITY: 4, ALPHA : 0, DYNAMIC: 4
+
+ID: 5, PRIORITY: 6, ALPHA : -6, DYNAMIC: 0
+
+ID: 6, PRIORITY: 8, ALPHA : -6, DYNAMIC: 2
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+]
+
+task_switch - BEFORE - [1 -> 3]
+task_switch - AFTER - [3 -> 3]
+        Peng: 1
+
+task_yield - BEFORE - [3]
+task_yield - AFTER - [3]
+task_switch - BEFORE - [3 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 4, PRIORITY: 4, ALPHA : -1, DYNAMIC: 3
+
+ID: 5, PRIORITY: 6, ALPHA : -7, DYNAMIC: -1
+
+ID: 6, PRIORITY: 8, ALPHA : -7, DYNAMIC: 1
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -3, DYNAMIC: -1
+]
+
+task_switch - BEFORE - [1 -> 4]
+task_switch - AFTER - [4 -> 4]
+            Ping: 1
+
+task_yield - BEFORE - [4]
+task_yield - AFTER - [4]
+task_switch - BEFORE - [4 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 5, PRIORITY: 6, ALPHA : -8, DYNAMIC: -2
+
+ID: 6, PRIORITY: 8, ALPHA : -8, DYNAMIC: 0
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+
+ID: 3, PRIORITY: 2, ALPHA : 0, DYNAMIC: 2
+
+ID: 4, PRIORITY: 4, ALPHA : -2, DYNAMIC: 2
+]
+
+task_switch - BEFORE - [1 -> 5]
+task_switch - AFTER - [5 -> 5]
+                Pong: 1
+
+task_yield - BEFORE - [5]
+task_yield - AFTER - [5]
+task_switch - BEFORE - [5 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 6, PRIORITY: 8, ALPHA : -9, DYNAMIC: -1
+
+ID: 2, PRIORITY: 0, ALPHA : -2, DYNAMIC: -2
+
+ID: 3, PRIORITY: 2, ALPHA : -1, DYNAMIC: 1
+
+ID: 4, PRIORITY: 4, ALPHA : -3, DYNAMIC: 1
+
+ID: 5, PRIORITY: 6, ALPHA : 0, DYNAMIC: 6
+]
+
+task_switch - BEFORE - [1 -> 6]
+task_switch - AFTER - [6 -> 6]
+                    Pung: 1
+
+task_yield - BEFORE - [6]
+task_yield - AFTER - [6]
+task_switch - BEFORE - [6 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -2, DYNAMIC: 0
+
+ID: 4, PRIORITY: 4, ALPHA : -4, DYNAMIC: 0
+
+ID: 5, PRIORITY: 6, ALPHA : -1, DYNAMIC: 5
+
+ID: 6, PRIORITY: 8, ALPHA : -10, DYNAMIC: -2
+]
+
+task_switch - BEFORE - [1 -> 2]
+task_switch - AFTER - [2 -> 2]
+    Pang: 2
+
+task_yield - BEFORE - [2]
+task_yield - AFTER - [2]
+task_switch - BEFORE - [2 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 3, PRIORITY: 2, ALPHA : -3, DYNAMIC: -1
+
+ID: 4, PRIORITY: 4, ALPHA : -5, DYNAMIC: -1
+
+ID: 5, PRIORITY: 6, ALPHA : -2, DYNAMIC: 4
+
+ID: 6, PRIORITY: 8, ALPHA : 0, DYNAMIC: 8
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+]
+
+task_switch - BEFORE - [1 -> 3]
+task_switch - AFTER - [3 -> 3]
+        Peng: 2
+
+task_yield - BEFORE - [3]
+task_yield - AFTER - [3]
+task_switch - BEFORE - [3 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 4, PRIORITY: 4, ALPHA : -6, DYNAMIC: -2
+
+ID: 5, PRIORITY: 6, ALPHA : -3, DYNAMIC: 3
+
+ID: 6, PRIORITY: 8, ALPHA : -1, DYNAMIC: 7
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -4, DYNAMIC: -2
+]
+
+task_switch - BEFORE - [1 -> 4]
+task_switch - AFTER - [4 -> 4]
+            Ping: 2
+
+task_yield - BEFORE - [4]
+task_yield - AFTER - [4]
+task_switch - BEFORE - [4 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 5, PRIORITY: 6, ALPHA : -4, DYNAMIC: 2
+
+ID: 6, PRIORITY: 8, ALPHA : -2, DYNAMIC: 6
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+
+ID: 3, PRIORITY: 2, ALPHA : 0, DYNAMIC: 2
+
+ID: 4, PRIORITY: 4, ALPHA : -7, DYNAMIC: -3
+]
+
+task_switch - BEFORE - [1 -> 5]
+task_switch - AFTER - [5 -> 5]
+                Pong: 2
+
+task_yield - BEFORE - [5]
+task_yield - AFTER - [5]
+task_switch - BEFORE - [5 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 6, PRIORITY: 8, ALPHA : -3, DYNAMIC: 5
+
+ID: 2, PRIORITY: 0, ALPHA : -2, DYNAMIC: -2
+
+ID: 3, PRIORITY: 2, ALPHA : -1, DYNAMIC: 1
+
+ID: 4, PRIORITY: 4, ALPHA : 0, DYNAMIC: 4
+
+ID: 5, PRIORITY: 6, ALPHA : -5, DYNAMIC: 1
+]
+
+task_switch - BEFORE - [1 -> 6]
+task_switch - AFTER - [6 -> 6]
+                    Pung: 2
+
+task_yield - BEFORE - [6]
+task_yield - AFTER - [6]
+task_switch - BEFORE - [6 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -2, DYNAMIC: 0
+
+ID: 4, PRIORITY: 4, ALPHA : -1, DYNAMIC: 3
+
+ID: 5, PRIORITY: 6, ALPHA : -6, DYNAMIC: 0
+
+ID: 6, PRIORITY: 8, ALPHA : -4, DYNAMIC: 4
+]
+
+task_switch - BEFORE - [1 -> 2]
+task_switch - AFTER - [2 -> 2]
+    Pang: 3
+
+task_yield - BEFORE - [2]
+task_yield - AFTER - [2]
+task_switch - BEFORE - [2 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 3, PRIORITY: 2, ALPHA : -3, DYNAMIC: -1
+
+ID: 4, PRIORITY: 4, ALPHA : -2, DYNAMIC: 2
+
+ID: 5, PRIORITY: 6, ALPHA : -7, DYNAMIC: -1
+
+ID: 6, PRIORITY: 8, ALPHA : -5, DYNAMIC: 3
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 3]
+task_switch - AFTER - [3 -> 3]
+        Peng: 3
+
+task_yield - BEFORE - [3]
+task_yield - AFTER - [3]
+task_switch - BEFORE - [3 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 4, PRIORITY: 4, ALPHA : -3, DYNAMIC: 1
+
+ID: 5, PRIORITY: 6, ALPHA : -8, DYNAMIC: -2
+
+ID: 6, PRIORITY: 8, ALPHA : -6, DYNAMIC: 2
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+
+ID: 3, PRIORITY: 2, ALPHA : 0, DYNAMIC: 2
+]
+
+task_switch - BEFORE - [1 -> 4]
+task_switch - AFTER - [4 -> 4]
+            Ping: 3
+
+task_yield - BEFORE - [4]
+task_yield - AFTER - [4]
+task_switch - BEFORE - [4 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 5, PRIORITY: 6, ALPHA : 0, DYNAMIC: 6
+
+ID: 6, PRIORITY: 8, ALPHA : -7, DYNAMIC: 1
+
+ID: 2, PRIORITY: 0, ALPHA : -2, DYNAMIC: -2
+
+ID: 3, PRIORITY: 2, ALPHA : -1, DYNAMIC: 1
+
+ID: 4, PRIORITY: 4, ALPHA : -4, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 5]
+task_switch - AFTER - [5 -> 5]
+                Pong: 3
+
+task_yield - BEFORE - [5]
+task_yield - AFTER - [5]
+task_switch - BEFORE - [5 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 6, PRIORITY: 8, ALPHA : -8, DYNAMIC: 0
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -2, DYNAMIC: 0
+
+ID: 4, PRIORITY: 4, ALPHA : -5, DYNAMIC: -1
+
+ID: 5, PRIORITY: 6, ALPHA : -1, DYNAMIC: 5
+]
+
+task_switch - BEFORE - [1 -> 6]
+task_switch - AFTER - [6 -> 6]
+                    Pung: 3
+
+task_yield - BEFORE - [6]
+task_yield - AFTER - [6]
+task_switch - BEFORE - [6 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+
+ID: 3, PRIORITY: 2, ALPHA : -3, DYNAMIC: -1
+
+ID: 4, PRIORITY: 4, ALPHA : 0, DYNAMIC: 4
+
+ID: 5, PRIORITY: 6, ALPHA : -2, DYNAMIC: 4
+
+ID: 6, PRIORITY: 8, ALPHA : -9, DYNAMIC: -1
+]
+
+task_switch - BEFORE - [1 -> 2]
+task_switch - AFTER - [2 -> 2]
+    Pang: 4
+
+task_yield - BEFORE - [2]
+task_yield - AFTER - [2]
+task_switch - BEFORE - [2 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 3, PRIORITY: 2, ALPHA : -4, DYNAMIC: -2
+
+ID: 4, PRIORITY: 4, ALPHA : -1, DYNAMIC: 3
+
+ID: 5, PRIORITY: 6, ALPHA : -3, DYNAMIC: 3
+
+ID: 6, PRIORITY: 8, ALPHA : -10, DYNAMIC: -2
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 3]
+task_switch - AFTER - [3 -> 3]
+        Peng: 4
+
+task_yield - BEFORE - [3]
+task_yield - AFTER - [3]
+task_switch - BEFORE - [3 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 4, PRIORITY: 4, ALPHA : -2, DYNAMIC: 2
+
+ID: 5, PRIORITY: 6, ALPHA : -4, DYNAMIC: 2
+
+ID: 6, PRIORITY: 8, ALPHA : -11, DYNAMIC: -3
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+
+ID: 3, PRIORITY: 2, ALPHA : 0, DYNAMIC: 2
+]
+
+task_switch - BEFORE - [1 -> 4]
+task_switch - AFTER - [4 -> 4]
+            Ping: 4
+
+task_yield - BEFORE - [4]
+task_yield - AFTER - [4]
+task_switch - BEFORE - [4 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 5, PRIORITY: 6, ALPHA : -5, DYNAMIC: 1
+
+ID: 6, PRIORITY: 8, ALPHA : 0, DYNAMIC: 8
+
+ID: 2, PRIORITY: 0, ALPHA : -2, DYNAMIC: -2
+
+ID: 3, PRIORITY: 2, ALPHA : -1, DYNAMIC: 1
+
+ID: 4, PRIORITY: 4, ALPHA : -3, DYNAMIC: 1
+]
+
+task_switch - BEFORE - [1 -> 5]
+task_switch - AFTER - [5 -> 5]
+                Pong: 4
+
+task_yield - BEFORE - [5]
+task_yield - AFTER - [5]
+task_switch - BEFORE - [5 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 6, PRIORITY: 8, ALPHA : -1, DYNAMIC: 7
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -2, DYNAMIC: 0
+
+ID: 4, PRIORITY: 4, ALPHA : -4, DYNAMIC: 0
+
+ID: 5, PRIORITY: 6, ALPHA : -6, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 6]
+task_switch - AFTER - [6 -> 6]
+                    Pung: 4
+
+task_yield - BEFORE - [6]
+task_yield - AFTER - [6]
+task_switch - BEFORE - [6 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -3, DYNAMIC: -1
+
+ID: 4, PRIORITY: 4, ALPHA : -5, DYNAMIC: -1
+
+ID: 5, PRIORITY: 6, ALPHA : -7, DYNAMIC: -1
+
+ID: 6, PRIORITY: 8, ALPHA : -2, DYNAMIC: 6
+]
+
+task_switch - BEFORE - [1 -> 2]
+task_switch - AFTER - [2 -> 2]
+    Pang: 5
+
+task_yield - BEFORE - [2]
+task_yield - AFTER - [2]
+task_switch - BEFORE - [2 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 3, PRIORITY: 2, ALPHA : 0, DYNAMIC: 2
+
+ID: 4, PRIORITY: 4, ALPHA : -6, DYNAMIC: -2
+
+ID: 5, PRIORITY: 6, ALPHA : -8, DYNAMIC: -2
+
+ID: 6, PRIORITY: 8, ALPHA : -3, DYNAMIC: 5
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+]
+
+task_switch - BEFORE - [1 -> 3]
+task_switch - AFTER - [3 -> 3]
+        Peng: 5
+
+task_yield - BEFORE - [3]
+task_yield - AFTER - [3]
+task_switch - BEFORE - [3 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 4, PRIORITY: 4, ALPHA : 0, DYNAMIC: 4
+
+ID: 5, PRIORITY: 6, ALPHA : -9, DYNAMIC: -3
+
+ID: 6, PRIORITY: 8, ALPHA : -4, DYNAMIC: 4
+
+ID: 2, PRIORITY: 0, ALPHA : -2, DYNAMIC: -2
+
+ID: 3, PRIORITY: 2, ALPHA : -1, DYNAMIC: 1
+]
+
+task_switch - BEFORE - [1 -> 4]
+task_switch - AFTER - [4 -> 4]
+            Ping: 5
+
+task_yield - BEFORE - [4]
+task_yield - AFTER - [4]
+task_switch - BEFORE - [4 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 5, PRIORITY: 6, ALPHA : 0, DYNAMIC: 6
+
+ID: 6, PRIORITY: 8, ALPHA : -5, DYNAMIC: 3
+
+ID: 2, PRIORITY: 0, ALPHA : -3, DYNAMIC: -3
+
+ID: 3, PRIORITY: 2, ALPHA : -2, DYNAMIC: 0
+
+ID: 4, PRIORITY: 4, ALPHA : -1, DYNAMIC: 3
+]
+
+task_switch - BEFORE - [1 -> 5]
+task_switch - AFTER - [5 -> 5]
+                Pong: 5
+
+task_yield - BEFORE - [5]
+task_yield - AFTER - [5]
+task_switch - BEFORE - [5 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 6, PRIORITY: 8, ALPHA : -6, DYNAMIC: 2
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -3, DYNAMIC: -1
+
+ID: 4, PRIORITY: 4, ALPHA : -2, DYNAMIC: 2
+
+ID: 5, PRIORITY: 6, ALPHA : -1, DYNAMIC: 5
+]
+
+task_switch - BEFORE - [1 -> 6]
+task_switch - AFTER - [6 -> 6]
+                    Pung: 5
+
+task_yield - BEFORE - [6]
+task_yield - AFTER - [6]
+task_switch - BEFORE - [6 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+
+ID: 3, PRIORITY: 2, ALPHA : 0, DYNAMIC: 2
+
+ID: 4, PRIORITY: 4, ALPHA : -3, DYNAMIC: 1
+
+ID: 5, PRIORITY: 6, ALPHA : -2, DYNAMIC: 4
+
+ID: 6, PRIORITY: 8, ALPHA : -7, DYNAMIC: 1
+]
+
+task_switch - BEFORE - [1 -> 2]
+task_switch - AFTER - [2 -> 2]
+    Pang: 6
+
+task_yield - BEFORE - [2]
+task_yield - AFTER - [2]
+task_switch - BEFORE - [2 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 3, PRIORITY: 2, ALPHA : -1, DYNAMIC: 1
+
+ID: 4, PRIORITY: 4, ALPHA : -4, DYNAMIC: 0
+
+ID: 5, PRIORITY: 6, ALPHA : -3, DYNAMIC: 3
+
+ID: 6, PRIORITY: 8, ALPHA : -8, DYNAMIC: 0
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 3]
+task_switch - AFTER - [3 -> 3]
+        Peng: 6
+
+task_yield - BEFORE - [3]
+task_yield - AFTER - [3]
+task_switch - BEFORE - [3 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 4, PRIORITY: 4, ALPHA : -5, DYNAMIC: -1
+
+ID: 5, PRIORITY: 6, ALPHA : -4, DYNAMIC: 2
+
+ID: 6, PRIORITY: 8, ALPHA : -9, DYNAMIC: -1
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -2, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 4]
+task_switch - AFTER - [4 -> 4]
+            Ping: 6
+
+task_yield - BEFORE - [4]
+task_yield - AFTER - [4]
+task_switch - BEFORE - [4 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 5, PRIORITY: 6, ALPHA : -5, DYNAMIC: 1
+
+ID: 6, PRIORITY: 8, ALPHA : -10, DYNAMIC: -2
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+
+ID: 3, PRIORITY: 2, ALPHA : -3, DYNAMIC: -1
+
+ID: 4, PRIORITY: 4, ALPHA : 0, DYNAMIC: 4
+]
+
+task_switch - BEFORE - [1 -> 5]
+task_switch - AFTER - [5 -> 5]
+                Pong: 6
+
+task_yield - BEFORE - [5]
+task_yield - AFTER - [5]
+task_switch - BEFORE - [5 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 6, PRIORITY: 8, ALPHA : 0, DYNAMIC: 8
+
+ID: 2, PRIORITY: 0, ALPHA : -2, DYNAMIC: -2
+
+ID: 3, PRIORITY: 2, ALPHA : -4, DYNAMIC: -2
+
+ID: 4, PRIORITY: 4, ALPHA : -1, DYNAMIC: 3
+
+ID: 5, PRIORITY: 6, ALPHA : -6, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 6]
+task_switch - AFTER - [6 -> 6]
+                    Pung: 6
+
+task_yield - BEFORE - [6]
+task_yield - AFTER - [6]
+task_switch - BEFORE - [6 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -5, DYNAMIC: -3
+
+ID: 4, PRIORITY: 4, ALPHA : -2, DYNAMIC: 2
+
+ID: 5, PRIORITY: 6, ALPHA : -7, DYNAMIC: -1
+
+ID: 6, PRIORITY: 8, ALPHA : -1, DYNAMIC: 7
+]
+
+task_switch - BEFORE - [1 -> 2]
+task_switch - AFTER - [2 -> 2]
+    Pang: 7
+
+task_yield - BEFORE - [2]
+task_yield - AFTER - [2]
+task_switch - BEFORE - [2 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 3, PRIORITY: 2, ALPHA : 0, DYNAMIC: 2
+
+ID: 4, PRIORITY: 4, ALPHA : -3, DYNAMIC: 1
+
+ID: 5, PRIORITY: 6, ALPHA : -8, DYNAMIC: -2
+
+ID: 6, PRIORITY: 8, ALPHA : -2, DYNAMIC: 6
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+]
+
+task_switch - BEFORE - [1 -> 3]
+task_switch - AFTER - [3 -> 3]
+        Peng: 7
+
+task_yield - BEFORE - [3]
+task_yield - AFTER - [3]
+task_switch - BEFORE - [3 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 4, PRIORITY: 4, ALPHA : -4, DYNAMIC: 0
+
+ID: 5, PRIORITY: 6, ALPHA : 0, DYNAMIC: 6
+
+ID: 6, PRIORITY: 8, ALPHA : -3, DYNAMIC: 5
+
+ID: 2, PRIORITY: 0, ALPHA : -2, DYNAMIC: -2
+
+ID: 3, PRIORITY: 2, ALPHA : -1, DYNAMIC: 1
+]
+
+task_switch - BEFORE - [1 -> 4]
+task_switch - AFTER - [4 -> 4]
+            Ping: 7
+
+task_yield - BEFORE - [4]
+task_yield - AFTER - [4]
+task_switch - BEFORE - [4 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 5, PRIORITY: 6, ALPHA : -1, DYNAMIC: 5
+
+ID: 6, PRIORITY: 8, ALPHA : -4, DYNAMIC: 4
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -2, DYNAMIC: 0
+
+ID: 4, PRIORITY: 4, ALPHA : -5, DYNAMIC: -1
+]
+
+task_switch - BEFORE - [1 -> 5]
+task_switch - AFTER - [5 -> 5]
+                Pong: 7
+
+task_yield - BEFORE - [5]
+task_yield - AFTER - [5]
+task_switch - BEFORE - [5 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 6, PRIORITY: 8, ALPHA : -5, DYNAMIC: 3
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+
+ID: 3, PRIORITY: 2, ALPHA : -3, DYNAMIC: -1
+
+ID: 4, PRIORITY: 4, ALPHA : 0, DYNAMIC: 4
+
+ID: 5, PRIORITY: 6, ALPHA : -2, DYNAMIC: 4
+]
+
+task_switch - BEFORE - [1 -> 6]
+task_switch - AFTER - [6 -> 6]
+                    Pung: 7
+
+task_yield - BEFORE - [6]
+task_yield - AFTER - [6]
+task_switch - BEFORE - [6 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -4, DYNAMIC: -2
+
+ID: 4, PRIORITY: 4, ALPHA : -1, DYNAMIC: 3
+
+ID: 5, PRIORITY: 6, ALPHA : -3, DYNAMIC: 3
+
+ID: 6, PRIORITY: 8, ALPHA : -6, DYNAMIC: 2
+]
+
+task_switch - BEFORE - [1 -> 2]
+task_switch - AFTER - [2 -> 2]
+    Pang: 8
+
+task_yield - BEFORE - [2]
+task_yield - AFTER - [2]
+task_switch - BEFORE - [2 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 3, PRIORITY: 2, ALPHA : 0, DYNAMIC: 2
+
+ID: 4, PRIORITY: 4, ALPHA : -2, DYNAMIC: 2
+
+ID: 5, PRIORITY: 6, ALPHA : -4, DYNAMIC: 2
+
+ID: 6, PRIORITY: 8, ALPHA : -7, DYNAMIC: 1
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+]
+
+task_switch - BEFORE - [1 -> 3]
+task_switch - AFTER - [3 -> 3]
+        Peng: 8
+
+task_yield - BEFORE - [3]
+task_yield - AFTER - [3]
+task_switch - BEFORE - [3 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 4, PRIORITY: 4, ALPHA : -3, DYNAMIC: 1
+
+ID: 5, PRIORITY: 6, ALPHA : -5, DYNAMIC: 1
+
+ID: 6, PRIORITY: 8, ALPHA : -8, DYNAMIC: 0
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -1, DYNAMIC: 1
+]
+
+task_switch - BEFORE - [1 -> 4]
+task_switch - AFTER - [4 -> 4]
+            Ping: 8
+
+task_yield - BEFORE - [4]
+task_yield - AFTER - [4]
+task_switch - BEFORE - [4 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 5, PRIORITY: 6, ALPHA : -6, DYNAMIC: 0
+
+ID: 6, PRIORITY: 8, ALPHA : -9, DYNAMIC: -1
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -2, DYNAMIC: 0
+
+ID: 4, PRIORITY: 4, ALPHA : -4, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 5]
+task_switch - AFTER - [5 -> 5]
+                Pong: 8
+
+task_yield - BEFORE - [5]
+task_yield - AFTER - [5]
+task_switch - BEFORE - [5 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 6, PRIORITY: 8, ALPHA : 0, DYNAMIC: 8
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+
+ID: 3, PRIORITY: 2, ALPHA : -3, DYNAMIC: -1
+
+ID: 4, PRIORITY: 4, ALPHA : -5, DYNAMIC: -1
+
+ID: 5, PRIORITY: 6, ALPHA : -7, DYNAMIC: -1
+]
+
+task_switch - BEFORE - [1 -> 6]
+task_switch - AFTER - [6 -> 6]
+                    Pung: 8
+
+task_yield - BEFORE - [6]
+task_yield - AFTER - [6]
+task_switch - BEFORE - [6 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -4, DYNAMIC: -2
+
+ID: 4, PRIORITY: 4, ALPHA : -6, DYNAMIC: -2
+
+ID: 5, PRIORITY: 6, ALPHA : -8, DYNAMIC: -2
+
+ID: 6, PRIORITY: 8, ALPHA : -1, DYNAMIC: 7
+]
+
+task_switch - BEFORE - [1 -> 2]
+task_switch - AFTER - [2 -> 2]
+    Pang: 9
+
+task_yield - BEFORE - [2]
+task_yield - AFTER - [2]
+task_switch - BEFORE - [2 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 3, PRIORITY: 2, ALPHA : 0, DYNAMIC: 2
+
+ID: 4, PRIORITY: 4, ALPHA : -7, DYNAMIC: -3
+
+ID: 5, PRIORITY: 6, ALPHA : -9, DYNAMIC: -3
+
+ID: 6, PRIORITY: 8, ALPHA : -2, DYNAMIC: 6
+
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+]
+
+task_switch - BEFORE - [1 -> 3]
+task_switch - AFTER - [3 -> 3]
+        Peng: 9
+
+task_yield - BEFORE - [3]
+task_yield - AFTER - [3]
+task_switch - BEFORE - [3 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 4, PRIORITY: 4, ALPHA : 0, DYNAMIC: 4
+
+ID: 5, PRIORITY: 6, ALPHA : -10, DYNAMIC: -4
+
+ID: 6, PRIORITY: 8, ALPHA : -3, DYNAMIC: 5
+
+ID: 2, PRIORITY: 0, ALPHA : -2, DYNAMIC: -2
+
+ID: 3, PRIORITY: 2, ALPHA : -1, DYNAMIC: 1
+]
+
+task_switch - BEFORE - [1 -> 4]
+task_switch - AFTER - [4 -> 4]
+            Ping: 9
+
+task_yield - BEFORE - [4]
+task_yield - AFTER - [4]
+task_switch - BEFORE - [4 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 5, PRIORITY: 6, ALPHA : 0, DYNAMIC: 6
+
+ID: 6, PRIORITY: 8, ALPHA : -4, DYNAMIC: 4
+
+ID: 2, PRIORITY: 0, ALPHA : -3, DYNAMIC: -3
+
+ID: 3, PRIORITY: 2, ALPHA : -2, DYNAMIC: 0
+
+ID: 4, PRIORITY: 4, ALPHA : -1, DYNAMIC: 3
+]
+
+task_switch - BEFORE - [1 -> 5]
+task_switch - AFTER - [5 -> 5]
+                Pong: 9
+
+task_yield - BEFORE - [5]
+task_yield - AFTER - [5]
+task_switch - BEFORE - [5 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 6, PRIORITY: 8, ALPHA : -5, DYNAMIC: 3
+
+ID: 2, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+
+ID: 3, PRIORITY: 2, ALPHA : -3, DYNAMIC: -1
+
+ID: 4, PRIORITY: 4, ALPHA : -2, DYNAMIC: 2
+
+ID: 5, PRIORITY: 6, ALPHA : -1, DYNAMIC: 5
+]
+
+task_switch - BEFORE - [1 -> 6]
+task_switch - AFTER - [6 -> 6]
+                    Pung: 9
+
+task_yield - BEFORE - [6]
+task_yield - AFTER - [6]
+task_switch - BEFORE - [6 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 2, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+
+ID: 3, PRIORITY: 2, ALPHA : 0, DYNAMIC: 2
+
+ID: 4, PRIORITY: 4, ALPHA : -3, DYNAMIC: 1
+
+ID: 5, PRIORITY: 6, ALPHA : -2, DYNAMIC: 4
+
+ID: 6, PRIORITY: 8, ALPHA : -6, DYNAMIC: 2
+]
+
+task_switch - BEFORE - [1 -> 2]
+task_switch - AFTER - [2 -> 2]
+    Pang: fim
+
+task_exit - BEFORE - [2]
+task_resume - BEFORE - [0]
+task_resume - AFTER - [0]
+task_exit - AFTER- [2]
+task_switch - BEFORE - [2 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 5 [
+ID: 3, PRIORITY: 2, ALPHA : -1, DYNAMIC: 1
+
+ID: 4, PRIORITY: 4, ALPHA : -4, DYNAMIC: 0
+
+ID: 5, PRIORITY: 6, ALPHA : -3, DYNAMIC: 3
+
+ID: 6, PRIORITY: 8, ALPHA : -7, DYNAMIC: 1
+
+ID: 0, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 3]
+task_switch - AFTER - [3 -> 3]
+        Peng: fim
+
+task_exit - BEFORE - [3]
+task_exit - AFTER- [3]
+task_switch - BEFORE - [3 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 4 [
+ID: 4, PRIORITY: 4, ALPHA : -5, DYNAMIC: -1
+
+ID: 5, PRIORITY: 6, ALPHA : -4, DYNAMIC: 2
+
+ID: 6, PRIORITY: 8, ALPHA : -8, DYNAMIC: 0
+
+ID: 0, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 4]
+task_switch - AFTER - [4 -> 4]
+            Ping: fim
+
+task_exit - BEFORE - [4]
+task_exit - AFTER- [4]
+task_switch - BEFORE - [4 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 3 [
+ID: 5, PRIORITY: 6, ALPHA : -5, DYNAMIC: 1
+
+ID: 6, PRIORITY: 8, ALPHA : -9, DYNAMIC: -1
+
+ID: 0, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+]
+
+task_switch - BEFORE - [1 -> 5]
+task_switch - AFTER - [5 -> 5]
+                Pong: fim
+
+task_exit - BEFORE - [5]
+task_exit - AFTER- [5]
+task_switch - BEFORE - [5 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 2 [
+ID: 6, PRIORITY: 8, ALPHA : -10, DYNAMIC: -2
+
+ID: 0, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+]
+
+task_switch - BEFORE - [1 -> 6]
+task_switch - AFTER - [6 -> 6]
+                    Pung: fim
+
+task_exit - BEFORE - [6]
+task_exit - AFTER- [6]
+task_switch - BEFORE - [6 -> 1]
+task_switch - AFTER - [1 -> 1]
+
+TAKSEXEC: 
+
+ID: 1, PRIORITY: 0, ALPHA : 0, DYNAMIC: 0
+Ready Queue: Size = 1 [
+ID: 0, PRIORITY: 0, ALPHA : -1, DYNAMIC: -1
+]
+
+task_switch - BEFORE - [1 -> 0]
+task_switch - AFTER - [0 -> 0]
+
+task_join - BEFORE - [0]
+task_join - BEFORE - [0]
+task_join - BEFORE - [0]
+task_join - BEFORE - [0]main: fim

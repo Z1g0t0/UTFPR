@@ -1,0 +1,63 @@
+1. 
+    a) getcontext(ucontext_t *ucp); ucp é um ponteiro o qual irá referenciar a uma struct do tipo ucontext_t, ou um contexto que será inicializado pela função getcontext() para o contexto ativo atual.
+
+    b) setcontext(ucontext_t *ucp); ucp em setcontext() irá referenciar a uma struct de contexto de usuário a ser restaurada.
+
+    c) swapcontext(ucontext_t *oucp, const ucontext_t *ucp) o parâmetro oucp referencia a uma struct de contexto a ser salvada, enquanto o parâmetro ucp referencia a struct de contexto a ser ativada.
+
+    d) makecontext(ucontext_t *ucp, void(*func)(), int argc, ...); o parâmetro ucp referencia a struct de contexto a ser modificado pela função makecontext(). Quando este contexto é ativado, a função de parâmetro func() é chamada, o qual é passado um número int argc de argumentos, e os próprios argumentos em seguida.
+
+2.  	
+    uc_stack.ss_sp: Endereço base corresponde ao stack de sinal alternativo para restaurar o estado de um stack de sinal alternativo existente. Um sinal de stack alternativo é usado durante a execução de manipulador de sinais se no estabelecimento deste manipulador requesitou-se tal sinal de stack alternativo.
+    uc_stack.ss_size: Número de bytes no stack. 
+    uc_stack.ss_flags: Determinada flags a serem usadas.
+    uc_link: Referencia o próximo contexto a ser resumido quando o contexto atual terminar.
+
+3.
+    Linha 20: ucontext_t ContextPing, ContextPong, ContextMain ;
+    Inicialização de variáveis struct do tipo ucontext_t.
+    
+    Linha 33: swapcontext (&ContextPing, &ContextPong) ;
+    Salva o contexto da thread Ping e restaura o contexto da thread Pong e ativa-a como thread atual.
+
+    Linha 51: swapcontext (&ContextPong, &ContextPing) ;
+    Salva o contexto da thread Pong e restaura o contexto da thread Ping e ativa-a como thread atual.
+
+    Linha 55: swapcontext (&ContextPong, &ContextMain) ;
+    Salva o contexto da thread Pong e restaura o contexto da thread Main e ativa-a como thread atual.
+
+    Linha 66: getcontext (&ContextPing) ;
+    Salva o contexto atual para a variável ContextPing.
+
+    Linha 71 ~ 74:
+    ContextPing.uc_stack.ss_sp = stack ;
+    Endereço base do stack de sinal alternativo.
+    ContextPing.uc_stack.ss_size = STACKSIZE ;
+    Tamanho em bytes do stack.
+    ContextPing.uc_stack.ss_flags = 0 ;
+    Flags que podem ser usadas.
+    ContextPing.uc_link = 0 ;
+    Contexto a ser resumido após o término de ContextPing.
+
+    Linha 82:
+    makecontext (&ContextPing, (void*)(*BodyPing), 1, "    Ping") ;
+    Restaura o contexto de ContextPing.
+    
+    Linha 84:
+    getcontext (&ContextPong) ;
+    Salva o contexto de ContextPong.
+
+    Linhas 89 ~ 92:
+    Idem Linhas 71 ~74 mas para ContextPong.
+
+    Linha 100:
+    makecontext (&ContextPong, (void*)(*BodyPong), 1, "        Pong") ;
+    Restaura o contexto de ContextPong.
+
+    Linha 102:
+    swapcontext (&ContextMain, &ContextPing) ;
+    Salva o contexto de ContextMain e restaura o contexto de ContextPing.
+
+    Linha 103:
+    swapcontext (&ContextMain, &ContextPong) ;
+    Salva o contexto de ContextMain e restaura o contexto de ContextPong.

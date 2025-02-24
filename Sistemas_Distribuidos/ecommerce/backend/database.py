@@ -19,12 +19,3 @@ class Produto( Base ):
     preco = Column(Float)
     estoque = Column(Integer)
 
-#class Pedido( Base ):
-#
-#    __tablename__ = 'pedidos'
-#
-#    id = Column(Integer, primary_key=True, index=True)
-#    produtos = Column(String, nullable=False)
-#    total = Column(Float, nullable=False)
-#    status = Column(String)
-#

@@ -39,6 +39,7 @@ env_var_handler() {
         fi
     else
         echo "$var=$value" >> .env
+		echo "$var: $value"
         echo "$var adicionado ao .env"
     fi
 }
@@ -132,8 +133,6 @@ sleep 4
 if [ -z "$STRIPE_WEBHOOK_SECRET" ]; then
     echo "Falha ao adquirir STRIPE_WEBHOOK_SECRET"
     exit 1
-else
-    echo "STRIPE_WEBHOOK_SECRET: $STRIPE_WEBHOOK_SECRET"
 fi
 
 env_var_handler "STRIPE_WEBHOOK_SECRET" "$STRIPE_WEBHOOK_SECRET"
@@ -168,7 +167,7 @@ for name in "${mss[@]}"; do
 	sleep 3
 	python "${name}.py" &
 
-	echo "PORT ${name}: $port"
+	#echo "PORT ${name}: $port"
 
 	cd ..
     env_var_handler "${name}PORT" "$port"

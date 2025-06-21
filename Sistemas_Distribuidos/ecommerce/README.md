@@ -29,7 +29,7 @@ Em ./backend, recomenda-se criar uma venv
 
 E instalar as bibliotecas necessarias com:
 
-    ./backend/bin/python -m pip install -r requirements.txt
+    ./bin/python -m pip install -r requirements.txt
 
 Em ./frontend, instalar as bibliotecas necessarias com:
 
